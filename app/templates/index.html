@@ -1,0 +1,23 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+
+<div class = "main">
+    <form class = "form" action = "{{ url_for('add') }}" method = "post">
+        <p>Income amount</p>
+        <input class = "input" name = "income_amount"><br>
+        <p>Income source</p>
+        <input class = "input" name = "income_source"><br>
+        <p>Expense amount</p>
+        <input class = "input" name = "expense_amount"><br>
+        <p>Expense source</p>
+        <input class = "input" name = "expense_source"><br>
+        <button type = "submit">Submit</button>
+    </form>
+</div>
+
+<span>Your current balance is {{ current_balance }}</span><br>
+<span>Your limit for today is {{ daily_limit }}</span>
+
+
+{% endblock %}
