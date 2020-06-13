@@ -3,21 +3,43 @@
 {% block body %}
 
 <div class = "main">
-    <form class = "form" action = "{{ url_for('add') }}" method = "post">
-        <p>Income amount</p>
-        <input class = "input" name = "income_amount"><br>
-        <p>Income source</p>
-        <input class = "input" name = "income_source"><br>
-        <p>Expense amount</p>
-        <input class = "input" name = "expense_amount"><br>
-        <p>Expense source</p>
-        <input class = "input" name = "expense_source"><br>
-        <button type = "submit">Submit</button>
-    </form>
+    {% if balance %}
+        <div class = 'div-current-balance'>
+            <form action = "{{ url_for('update', id = balance.id) }}" method = "post">
+                <p>What's your current balance?</p>
+                <input class = "input" name = "current_balance">
+                <button type = "submit">Submit</button>
+            </form>
+        </div>
+        {% else %}
+        <div class = 'div-current-balance'>
+            <form action = "{{ url_for('create') }}" method = "post">
+                <p>What's your current balance?</p>
+                <input class = "input" name = "current_balance">
+                <button type = "submit">Submit</button>
+            </form>
+        </div>
+        {% endif %}
+    <div class = "div-income">
+        <form action = "{{ url_for('income') }}" method = "post">
+            <p>Income amount</p>
+            <input class = "input" name = "income_amount"><br>
+            <p>Income source</p>
+            <input class = "input" name = "income_source"><br>
+            <button type = "submit">Submit</button>
+        </form>
+    </div>
+    <div class = "div-expense">
+        <form action = "{{ url_for('expense') }}" method = "post">
+            <p>Expense amount</p>
+            <input class = "input" name = "expense_amount"><br>
+            <p>Expense source</p>
+            <input class = "input" name = "expense_source"><br>
+            <button type = "submit">Submit</button>
+        </form>
+    </div>
+    <span class = 'current-balance'>Your current balance is {{ current_balance }}</span><br>
+    <span class = 'daily-limit'>Your limit for today is {{ daily_limit }}</span>
 </div>
-
-<span>Your current balance is {{ current_balance }}</span><br>
-<span>Your limit for today is {{ daily_limit }}</span>
-
 
 {% endblock %}
