@@ -10,6 +10,12 @@ class Balance(db.Model):
     def __repr__(self):
         return f"Balance('{self.balance}')"
 
+    def income(self, amount):
+        self.balance += amount
+
+    def expense(self, amount):
+        self.balance -= amount
+
 class Income(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     amount = db.Column(db.Float(asdecimal = True), default = 0)
