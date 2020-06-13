@@ -17,12 +17,6 @@ p {
     margin: 0;
 }
 
-span {
-    position: relative;
-    top: 30px;
-    margin-left: 400px;
-    font-weight: bold;
-}
 
 button {
     border-radius: 4px;
@@ -38,17 +32,30 @@ button:hover {
 
 .main {
     background-color: #ccc;
-    width: 500px;
-    height: 350px;
+    width: 650px;
+    height: 450px;
     border-radius: 4px;
     margin: 0 auto;
     position: relative;
 }
 
-.form {
+.div-current-balance {
+    margin-top: 30px;
     position: absolute;
-    top: 20px;
-    left: 75px;
+    top: 0;
+    left: 30px;
+}
+
+.div-income {
+    position: absolute;
+    top: 150px;
+    left: 30px;
+}
+
+.div-expense {
+    position: absolute;
+    top: 150px;
+    right: 30px;
 }
 
 .input {
@@ -56,7 +63,7 @@ button:hover {
     height: 35px;
     margin: 10px auto;
     margin-top: 2px;
-    color: white;
+    color: black;
     border-radius: 4px;
     border: solid white;
     outline: none;
@@ -66,5 +73,23 @@ button:hover {
 
 .input:focus {
     background-color: lightgreen;
-    width: 350px
+    color: white;
+    width: 350px;
+}
+
+.current-balance {
+    position: absolute;
+    bottom: 55px;
+    left:0;
+    margin-left: 30px;
+    font-weight: bold;
+}
+
+.daily-limit {
+    position: absolute;
+    bottom: 0;
+    left:0;
+    margin-left: 30px;
+    margin-bottom: 25px;
+    font-weight: bold;
 }
